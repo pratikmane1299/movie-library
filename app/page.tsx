@@ -1,7 +1,18 @@
-import { Inter } from "next/font/google";
+import { getAllMovies } from "@/services/movies";
+import { MoviesResType } from "@/types/movies";
 
-const inter = Inter({ subsets: ["latin"] });
+import MoviesGrid from "@/components/MoviesGrid";
 
-export default function Home() {
-  return <span>home page</span>;
+export default async function Home() {
+  const { results, total_results }: MoviesResType = await getAllMovies();
+
+  return (
+    <section>
+      <MoviesGrid
+        totalPages={15}
+        totalMovies={total_results}
+        movies={results}
+      />
+    </section>
+  );
 }
