@@ -58,7 +58,7 @@ function MoviesGrid({ totalPages, totalMovies, movies }: MoviesGridPropsType) {
         fetchMoreMovies();
       }}
     >
-      <div className="pt-6 flex flex-col">
+      <div className="flex flex-col">
         <SearchBar
           id="movies-search-bar"
           name="movies-search-bar"
@@ -66,7 +66,7 @@ function MoviesGrid({ totalPages, totalMovies, movies }: MoviesGridPropsType) {
           placeholder="Search for your favourite movies..."
           onChange={(e) => setValue(e.target.value)}
         />
-        <div className="my-6 grid grid-cols-4 gap-6">
+        <div className="my-6 grid grid-cols-2 md:grid-cols-4 gap-6">
           {fetchedMovies?.map((movie) => (
             <div
               key={movie.id}
@@ -77,7 +77,7 @@ function MoviesGrid({ totalPages, totalMovies, movies }: MoviesGridPropsType) {
                 alt={movie?.title}
                 width={500}
                 height={300}
-                className="w-full h-[200px] md:h-[300px] object-cover"
+                className="w-full h-[200px] md:h-[300px] object-cover rounded"
               />
               <div className="mt-2">
                 <h6
