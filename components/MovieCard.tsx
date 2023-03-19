@@ -24,7 +24,7 @@ function MovieCard({ movie }: MovieCardPropsType) {
           alt={movie.title}
           width={1900}
           height={800}
-          className="h-full w-full"
+          className="h-full w-full rounded"
         />
       </div>
       <div className="p-6 grid grid-cols-[1fr_3fr] gap-6 z-[1]">
