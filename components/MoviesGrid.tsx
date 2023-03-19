@@ -2,14 +2,15 @@
 import { useEffect, useRef, useState } from "react";
 import { Inter } from "next/font/google";
 import Image from "next/image";
+import Link from "next/link";
 
 import { getMoviePosterPath } from "@/utils";
 import { getAllMovies } from "@/services/movies";
 import { useDebounce } from "@/hooks/useDebounce";
+import { MovieListItemType } from "@/types/movies";
 
 import InfiniteList from "./InfiniteList";
 import SearchBar from "./SearchBar";
-import { MovieListItemType } from "@/types/movies";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -72,20 +73,22 @@ function MoviesGrid({ totalPages, totalMovies, movies }: MoviesGridPropsType) {
               key={movie.id}
               className="w-full flex flex-col hover:scale-110"
             >
-              <Image
-                src={`${getMoviePosterPath(movie?.poster_path)}`}
-                alt={movie?.title}
-                width={500}
-                height={300}
-                className="w-full h-[200px] md:h-[300px] object-cover rounded"
-              />
-              <div className="mt-2">
-                <h6
-                  className={`${inter.className} font-medium text-sm md:text-base`}
-                >
-                  {movie.title}
-                </h6>
-              </div>
+              <Link href={`/${movie.id}`}>
+                <Image
+                  src={`${getMoviePosterPath(movie?.poster_path)}`}
+                  alt={movie?.title}
+                  width={500}
+                  height={300}
+                  className="w-full h-[200px] md:h-[300px] object-cover rounded"
+                />
+                <div className="mt-2">
+                  <h6
+                    className={`${inter.className} font-medium text-sm md:text-base`}
+                  >
+                    {movie.title}
+                  </h6>
+                </div>
+              </Link>
             </div>
           ))}
         </div>
