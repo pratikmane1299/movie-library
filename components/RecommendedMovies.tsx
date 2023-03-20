@@ -32,6 +32,10 @@ async function RecommendedMovies({ promise }: RecommendedMoviesPropsType) {
               </Link>
             </div>
           ))}
+
+        {results?.length === 0 && (
+          <span>No recommedations found for this movie...</span>
+        )}
       </div>
     </div>
   );
