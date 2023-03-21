@@ -1,5 +1,9 @@
+import { Inter } from 'next/font/google';
+
 import Navbar from "@/components/Navbar";
 import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Movie Library",
@@ -13,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={inter.className}>
         <main className="flex min-h-screen flex-col w-full px-6 lg:px-0 lg:mx-auto lg:max-w-5xl">
 					<Navbar />
           {children}
