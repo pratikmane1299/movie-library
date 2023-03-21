@@ -29,13 +29,13 @@ function MoviesGrid({ totalPages, totalMovies, movies }: MoviesGridPropsType) {
 
   useEffect(() => {
     mount.current += 1;
-  });
+  }, []);
 
   useEffect(() => {
     if (mount.current >= 1) {
       searchMovies();
     }
-  }, [debouncedVal]);
+  }, [debouncedVal, searchMovies]);
 
   async function fetchMoreMovies() {
     const { results } = await getAllMovies(page + 1, debouncedVal);

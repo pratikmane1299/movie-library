@@ -13,7 +13,7 @@ function Casts({ cast }: CastsPropsType) {
       <h6 className="mb-4 text-base font-semibold">Top Billed Cast</h6>
       <div className="w-full flex overflow-x-auto scroll-smooth">
         {cast.slice(0, 10).map((member) => (
-          <div className="mr-4 flex-[0_0_10%]">
+          <div key={member.id} className="mr-4 flex-[0_0_10%]">
 						<div className="flex flex-col">
             <Image
               alt={member.original_name}

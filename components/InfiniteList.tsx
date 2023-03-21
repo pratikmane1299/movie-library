@@ -34,7 +34,7 @@ function InfiniteList({
         onFetchNextPage();
       }
     },
-    [page, totalPages]
+    [page, totalPages, onFetchNextPage]
   );
 
   useEffect(() => {
@@ -50,7 +50,7 @@ function InfiniteList({
     return () => {
       if (loadingEl) observer.unobserve(loadingEl);
     };
-  }, [loadingRef, page]);
+  }, [loadingRef, page, obseverCallback]);
 
   return (
     <Fragment>
