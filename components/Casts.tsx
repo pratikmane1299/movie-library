@@ -9,7 +9,7 @@ type CastsPropsType = {
 
 function Casts({ cast }: CastsPropsType) {
   return (
-    <div className="w-full flex flex-col">
+    <div className="w-full flex flex-col mt-4 lg:mt-0">
       <h6 className="mb-4 text-base font-semibold">Top Billed Cast</h6>
       <div className="w-full flex overflow-x-auto scroll-smooth">
         {cast.slice(0, 10).map((member) => (

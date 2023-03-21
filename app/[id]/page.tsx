@@ -60,7 +60,7 @@ export default async function Page({ params }: { params: { id: number } }) {
     <div className="w-full flex flex-col">
       <MovieCard movie={movie} />
       <div className="w-full py-6">
-        <div className="w-full grid grid-cols-[3fr_1fr] gap-6">
+        <div className="w-full flex flex-col-reverse space-y-2 lg:grid lg:grid-cols-[3fr_1fr] lg:gap-6">
           <div className="w-full flex flex-col space-y-6">
             <Casts cast={movie.credits.cast} />
             <Suspense
