@@ -1,8 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Moive library app created with Next.js 13 (App directory).
 
 ## Getting Started
+- Create an account on [TMDB](https://www.themoviedb.org/signup) to generate api key.
 
-First, run the development server:
+- Create <code>.env</code> file in project root directory and add below envrionment variables to it.
+
+```.env
+TMDB_API_KEY=<your api key>
+TMD_API_BASE_PATH=https://api.themoviedb.org/3
+API_URL=http://localhost:3000
+```
+
+Run the development server:
 
 ```bash
 npm run dev
