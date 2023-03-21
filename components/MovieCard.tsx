@@ -1,7 +1,15 @@
+import { Playfair_Display } from 'next/font/google';
+
 import { MovieDetailGenreType, MovieDetailType } from "@/types/movies";
 import { getMovieBackdropPath, getMoviePosterPath, getMovieRatingInPercentage } from "@/utils";
+
 import Image from "next/image";
 import MovieRating from "./MovieRating";
+
+const playfair = Playfair_Display({
+	subsets: ['latin'],
+	weight: '400',
+})
 
 type MovieCardPropsType = {
 	movie: MovieDetailType;
@@ -38,7 +46,7 @@ function MovieCard({ movie }: MovieCardPropsType) {
           />
         </div>
         <div className="w-full flex flex-col justify-center">
-          <h1 className="mb-2 text-3xl font-semibold text-white">
+          <h1 className={`mb-2 text-3xl font-semibold text-white ${playfair.className}`}>
             {movie.title}
           </h1>
           <div className="mb-1 flex items-center space-x-2 text-sm font-normal">
@@ -58,7 +66,7 @@ function MovieCard({ movie }: MovieCardPropsType) {
           )}
           <div className="mt-4 flex flex-col space-y-1">
             <span className="text-white font-medium text-xl">Overview</span>
-            <p className="text-sm font-light leading-5 tracking-wide">{movie.overview}</p>
+            <p className={`text-sm font-light leading-5 tracking-wide ${playfair.className}`}>{movie.overview}</p>
           </div>
         </div>
       </div>

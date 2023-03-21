@@ -17,14 +17,14 @@ async function RecommendedMovies({ promise }: RecommendedMoviesPropsType) {
       <div className="w-full flex gap-3 overflow-x-auto">
         {results.length > 0 &&
           results.slice(0, 10).map((recommedation) => (
-            <div key={recommedation.id} className="w-[170px]">
+            <div key={recommedation.id} className="flex-[0_0_17%]">
               <Link href={`/${recommedation.id}`}>
                 <Image
                   src={getRecommendedMovieImagePath(recommedation.poster_path)}
                   alt={recommedation.title}
                   width={160}
-                  height={100}
-                  className="w-full h-[100px] rounded"
+                  height={90}
+                  className="w-full h-[90px] rounded"
                 />
                 <span className="text-sm font-medium text-white">
                   {recommedation.title}

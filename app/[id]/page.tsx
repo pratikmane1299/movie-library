@@ -57,14 +57,18 @@ export default async function Page({ params }: { params: { id: number } }) {
 	const recommededMoviesPromise = getRecommedationsForMovie(id);
 
   return (
-    <div className="flex flex-col">
+    <div className="w-full flex flex-col">
       <MovieCard movie={movie} />
-      <div className="py-6">
-        <div className="grid grid-cols-[3fr_1fr] gap-6">
-          <div className="flex flex-col space-y-6">
+      <div className="w-full py-6">
+        <div className="w-full grid grid-cols-[3fr_1fr] gap-6">
+          <div className="w-full flex flex-col space-y-6">
             <Casts cast={movie.credits.cast} />
-            <Suspense fallback={<div className='text-white'>Loading recommeded movies</div>}>
-							{/* @ts-expect-error Server Component */}
+            <Suspense
+              fallback={
+                <div className="text-white">Loading recommeded movies</div>
+              }
+            >
+              {/* @ts-expect-error Server Component */}
               <RecommendedMovies promise={recommededMoviesPromise} />
             </Suspense>
           </div>
