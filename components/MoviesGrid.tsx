@@ -35,7 +35,7 @@ function MoviesGrid({ totalPages, totalMovies, movies }: MoviesGridPropsType) {
     if (mount.current >= 1) {
       searchMovies();
     }
-  }, [debouncedVal, searchMovies]);
+  }, [debouncedVal]);
 
   async function fetchMoreMovies() {
     const { results } = await getAllMovies(page + 1, debouncedVal);

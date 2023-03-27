@@ -1,16 +1,19 @@
+import Link from "next/link";
 import React from "react";
 
 function Navbar() {
   return (
     <div className="w-full py-4">
       <div className="flex justify-between items-center">
-        <span className="text-xl font-semibold">Movie Library</span>
+        <Link href={"/"}>
+          <span className="text-xl font-semibold">Movie Library</span>
+        </Link>
 
         <a
           rel="noopener norefferer nofollow"
           href="https://github.com/pratikmane1299"
           target="_blank"
-					className="flex items-center text-sm font-medium hover:underline"
+          className="flex items-center text-sm font-medium hover:underline"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
