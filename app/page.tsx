@@ -1,12 +1,13 @@
 export const dynamic = 'force-dynamic';
 
-import { getAllMovies } from "@/services/movies";
+import { getAllMoviesOnServer } from "@/services/movies";
 import { MoviesResType } from "@/types/movies";
 
 import MoviesGrid from "@/components/MoviesGrid";
 
 export default async function Home() {
-  const { results, total_results }: MoviesResType = await getAllMovies();
+  const { results, total_results }: MoviesResType =
+    await getAllMoviesOnServer();
 
   return (
     <section>
