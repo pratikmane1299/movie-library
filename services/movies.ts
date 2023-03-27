@@ -9,6 +9,7 @@ export function getAllMovies(page = 1, searchTerm = '') {
     `${TMD_API_URL}/${routePath}/movie?api_key=${TMDB_API_KEY}&page=${page}&query=${encodeURIComponent(
       searchTerm
     )}`,
+    { next: { revalidate: 0 } }
   ).then((res) => res.json());
 }
 
