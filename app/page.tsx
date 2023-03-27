@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { getAllMovies } from "@/services/movies";
 import { MoviesResType } from "@/types/movies";
 
