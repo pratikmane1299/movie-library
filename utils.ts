@@ -7,15 +7,11 @@ const TMD_RECOMMENDED_MOVIE_IMAGE_SIZE = 'w185';
 export const isServer = typeof window ? false : true;
 
 export function getAPIPath() {
-	return isServer
-    ? process.env.TMD_API_BASE_PATH
-    : process.env.NEXT_PUBLIC_TMD_API_BASE_PATH;
+	return process.env.TMD_API_BASE_PATH;
 }
 
 export function getTMDBAPIKey() {
-	return isServer
-    ? process.env.TMD_API_BASE_PATH
-    : process.env.NEXT_PUBLIC_TMDB_API_KEY;
+	return process.env.TMDB_API_KEY;
 }
 
 export function getTMDBImageBasePath() {
