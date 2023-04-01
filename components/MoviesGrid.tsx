@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { Inter } from "next/font/google";
-import Image from "next/image";
+
 import Link from "next/link";
 
 import { getMoviePosterPath } from "@/utils";
@@ -11,6 +11,7 @@ import { MovieListItemType } from "@/types/movies";
 
 import InfiniteList from "./InfiniteList";
 import SearchBar from "./SearchBar";
+import ImageFallback from "./ImageFallback";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -74,7 +75,7 @@ function MoviesGrid({ totalPages, totalMovies, movies }: MoviesGridPropsType) {
               className="w-full flex flex-col hover:scale-110"
             >
               <Link href={`/${movie.id}`}>
-                <Image
+                <ImageFallback
                   src={`${getMoviePosterPath(movie?.poster_path)}`}
                   alt={movie?.title}
                   width={500}

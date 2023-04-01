@@ -1,8 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import { RecommedationsResType } from "@/types/movies";
 import { getRecommendedMovieImagePath } from "@/utils";
+
+import ImageFallback from "./ImageFallback";
 
 type RecommendedMoviesPropsType = {
   promise: Promise<RecommedationsResType>;
@@ -19,7 +20,7 @@ async function RecommendedMovies({ promise }: RecommendedMoviesPropsType) {
           results.slice(0, 10).map((recommedation) => (
             <div key={recommedation.id} className="flex-[0_0_17%]">
               <Link href={`/${recommedation.id}`}>
-                <Image
+                <ImageFallback
                   src={getRecommendedMovieImagePath(recommedation.poster_path)}
                   alt={recommedation.title}
                   width={160}

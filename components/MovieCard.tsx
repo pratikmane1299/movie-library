@@ -28,6 +28,7 @@ function MovieCard({ movie }: MovieCardPropsType) {
     <div className="relative w-full h-[300px] lg:h-[400px] flex flex-col justify-center">
       <div className="absolute w-full h-full z-0 opacity-50">
         <Image
+          priority={true}
           src={backdropImage}
           alt={movie.title}
           width={1900}
@@ -46,27 +47,37 @@ function MovieCard({ movie }: MovieCardPropsType) {
           />
         </div>
         <div className="w-full flex flex-col justify-center">
-          <h1 className={`mb-1 lg:mb-2 tex-2xl lg:text-3xl font-semibold text-white ${playfair.className}`}>
+          <h1
+            className={`mb-1 lg:mb-2 tex-2xl lg:text-3xl font-semibold text-white ${playfair.className}`}
+          >
             {movie.title}
           </h1>
           <div className="mb-1 flex items-center space-x-2 text-xs lg:text-sm font-normal">
             <span>{movie.release_date}</span>
             {movie.genres.length > 0 && <span>{renderMovieGenres()}</span>}
           </div>
-					<div className="mb-2 lg:mb-4 flex items-center space-x-2 ">
-						<MovieRating
+          <div className="mb-2 lg:mb-4 flex items-center space-x-2 ">
+            <MovieRating
               rating={getMovieRatingInPercentage(movie.vote_average)}
             />
-						<span className="text-sm lg:text-base font-semibold tracking-wide">User Reviews</span>
-					</div>
+            <span className="text-sm lg:text-base font-semibold tracking-wide">
+              User Reviews
+            </span>
+          </div>
           {movie?.tagline && (
             <span className="block font-light text-sm lg:text-base italic text-gray-400">
               {movie.tagline}
             </span>
           )}
           <div className="mt-1 lg:mt-4 flex flex-col space-y-0.5 lg:space-y-1">
-            <span className="text-white font-medium text-base lg:text-xl">Overview</span>
-            <p className={`text-sm lg:text-sm font-light leading-5 tracking-wide ${playfair.className}`}>{movie.overview}</p>
+            <span className="text-white font-medium text-base lg:text-xl">
+              Overview
+            </span>
+            <p
+              className={`text-sm lg:text-sm font-light leading-5 tracking-wide ${playfair.className}`}
+            >
+              {movie.overview}
+            </p>
           </div>
         </div>
       </div>
